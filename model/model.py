@@ -173,7 +173,6 @@ class CoordinatesHelper:
 
     def getExitPoint(self, exitDescription):
         room, direction, label, rebind = exitDescription
-
         return self.getExitPointFromPoint(room.getView().pos(), direction)
 
 

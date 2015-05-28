@@ -125,7 +125,7 @@ class uiMapLevel(QtGui.QGraphicsScene):
     __model=None
     def __init__(self):
         super(uiMapLevel, self).__init__()
-        self.setBackgroundBrush(QtGui.QColor(255, 255, 255, 127))
+        self.setBackgroundBrush(QtGui.QColor(5, 5, 5, 127))
 
     def setModel(self, model):
         self.__model = model
@@ -312,7 +312,7 @@ class Room(QtGui.QGraphicsItem):
         super(Room, self).__init__()
         self.__boundingRect = QtCore.QRectF(0,0,self.__config.getSize(),self.__config.getSize())
 
-        self.color = self.defColor = QtGui.QColor(100,100,100)
+        self.color = self.defColor = QtGui.QColor(80,80,80)
 
         self.setFlags(QtGui.QGraphicsItem.ItemSendsGeometryChanges | QtGui.QGraphicsItem.ItemIsSelectable | QtGui.QGraphicsItem.ItemIsMovable | QtGui.QGraphicsItem.ItemIsFocusable)
 
@@ -345,7 +345,7 @@ class Room(QtGui.QGraphicsItem):
         P1 = QtCore.QPointF(line.x2()+math.cos(angle1)*h,line.y2()+math.sin(angle1)*h)
         P2 = QtCore.QPointF(line.x2()+math.cos(angle2)*h,line.y2()+math.sin(angle2)*h)
 
-        painter.setBrush(QtGui.QColor(0,0,0))
+        painter.setBrush(QtGui.QColor(255,0,0))
         painter.drawPolygon(line.p2(), P1, P2)
         painter.setBrush(brush)
 
@@ -418,7 +418,7 @@ class Room(QtGui.QGraphicsItem):
 
 
         if self.__model.isCurrentlyVisited():
-            currentColor = QtGui.QColor(255,255,255)
+            currentColor = QtGui.QColor(255,255,0)
             painter.setBrush(currentColor)
             if self.isSelected():
                 painter.setPen(QtCore.Qt.DashLine)
@@ -429,7 +429,7 @@ class Room(QtGui.QGraphicsItem):
 
 
         if self.getModel().getProperty('disabled'):
-            currentColor = QtGui.QColor(255,255,255, 50)
+            currentColor = QtGui.QColor(0,0,0, 50)
             painter.setBrush(currentColor)
         else:
             painter.setPen(QtCore.Qt.SolidLine)
@@ -446,7 +446,7 @@ class Room(QtGui.QGraphicsItem):
                     self.drawArrowHead(line, painter)
                  else:
                     newpen = QtGui.QPen(pen)
-                    newpen.setColor(QtGui.QColor(9,171,235))
+                    newpen.setColor(QtGui.QColor(255,0,0))
                     painter.setPen(newpen)
             painter.drawLine(midPoint, 0, midPoint, exitSize)
             painter.setPen(pen)
@@ -461,7 +461,7 @@ class Room(QtGui.QGraphicsItem):
                     self.drawArrowHead(line, painter)
                 else:
                     newpen = QtGui.QPen(pen)
-                    newpen.setColor(QtGui.QColor(9,171,235))
+                    newpen.setColor(QtGui.QColor(255,0,0))
                     painter.setPen(newpen)
             painter.drawLine(exitSize + edgeSize, exitSize, objectSize, 0)
             painter.setPen(pen)
@@ -476,7 +476,7 @@ class Room(QtGui.QGraphicsItem):
                     self.drawArrowHead(line, painter)
                 else:
                     newpen = QtGui.QPen(pen)
-                    newpen.setColor(QtGui.QColor(9,171,235))
+                    newpen.setColor(QtGui.QColor(255,0,0))
                     painter.setPen(newpen)
             painter.drawLine(exitSize + edgeSize, midPoint, objectSize, midPoint)
             painter.setPen(pen)
@@ -491,7 +491,7 @@ class Room(QtGui.QGraphicsItem):
                     self.drawArrowHead(line, painter)
                 else:
                     newpen = QtGui.QPen(pen)
-                    newpen.setColor(QtGui.QColor(9,171,235))
+                    newpen.setColor(QtGui.QColor(255,0,0))
                     painter.setPen(newpen)
             painter.drawLine(exitSize + edgeSize, exitSize + edgeSize, objectSize, objectSize)
             painter.setPen(pen)
@@ -506,7 +506,7 @@ class Room(QtGui.QGraphicsItem):
                     self.drawArrowHead(line, painter)
                 else:
                     newpen = QtGui.QPen(pen)
-                    newpen.setColor(QtGui.QColor(9,171,235))
+                    newpen.setColor(QtGui.QColor(255,0,0))
                     painter.setPen(newpen)
             painter.drawLine(line)
             painter.setPen(pen)
@@ -521,7 +521,7 @@ class Room(QtGui.QGraphicsItem):
                     self.drawArrowHead(line, painter)
                 else:
                     newpen = QtGui.QPen(pen)
-                    newpen.setColor(QtGui.QColor(9,171,235))
+                    newpen.setColor(QtGui.QColor(255,0,0))
                     painter.setPen(newpen)
             painter.drawLine(0, objectSize, exitSize, exitSize + edgeSize)
             painter.setPen(pen)
@@ -536,7 +536,7 @@ class Room(QtGui.QGraphicsItem):
                     self.drawArrowHead(line, painter)
                 else:
                     newpen = QtGui.QPen(pen)
-                    newpen.setColor(QtGui.QColor(9,171,235))
+                    newpen.setColor(QtGui.QColor(255,0,0))
                     painter.setPen(newpen)
             painter.drawLine(0, midPoint, exitSize, midPoint)
             painter.setPen(pen)
@@ -551,7 +551,7 @@ class Room(QtGui.QGraphicsItem):
                     self.drawArrowHead(line, painter)
                 else:
                     newpen = QtGui.QPen(pen)
-                    newpen.setColor(QtGui.QColor(9,171,235))
+                    newpen.setColor(QtGui.QColor(255,0,0))
                     painter.setPen(newpen)
             painter.drawLine(0, 0, exitSize, exitSize)
             painter.setPen(pen)
@@ -627,7 +627,7 @@ class Label(QtGui.QGraphicsTextItem):
         super(Label, self).__init__(text)
         font = QtGui.QFont()
         font.setHintingPreference(QtGui.QFont.PreferFullHinting | QtGui.QFont.PreferQuality)
-        font.setPixelSize(20)
+        font.setPixelSize(30)
         self.setFont(font)
 
 

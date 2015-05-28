@@ -142,12 +142,13 @@ class Room:
         return self.__isHighlighted
 
     def hasMaskedExits(self):
-        for index, link in self.__links.items():
+	return True
+        """for index, link in self.__links.items():
             sourceSide=link.getSourceSideFor(self)
             if sourceSide[3] is not None and len(sourceSide[3]) and sourceSide[3] != 'N/A': return True
         for link in self.__customLinks:
             sourceSide=link.getSourceSideFor(self)
-            if sourceSide[3] is not None and len(sourceSide[3]) and sourceSide[3] != 'N/A': return True
+            if sourceSide[3] is not None and len(sourceSide[3]) and sourceSide[3] != 'N/A': return True"""
 
 
     def getMaskedExitsString(self):
@@ -155,10 +156,10 @@ class Room:
         for index, link in self.__links.items():
             sourceSide=link.getSourceSideFor(self)
             if sourceSide[3] is not None and len(sourceSide[3]) and sourceSide[3] != 'N/A':
-                if sourceSide[1] == model.Direction.OTHER:
-                    continue
-                else:
-                    returnString += "exit:rebind:%s:%s\n" % (model.Direction.mapToLabel(sourceSide[1]), sourceSide[3])
+             """if sourceSide[1] == model.Direction.OTHER:"""
+             """continue"""
+             """else:"""
+            returnString += "exit:rebind:%s:%s\n" % (model.Direction.mapToLabel(sourceSide[1]), sourceSide[3])
         for link in self.__customLinks:
             sourceSide=link.getSourceSideFor(self)
             if sourceSide[3] is not None and len(sourceSide[3]) and sourceSide[3] != 'N/A':
