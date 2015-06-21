@@ -627,7 +627,7 @@ class Label(QtGui.QGraphicsTextItem):
         super(Label, self).__init__(text)
         font = QtGui.QFont()
         font.setHintingPreference(QtGui.QFont.PreferFullHinting | QtGui.QFont.PreferQuality)
-        font.setPixelSize(30)
+        font.setPixelSize(20)
         self.setFont(font)
 
 
